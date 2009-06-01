@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wlodek Bzyl"]
-  s.date = %q{2009-06-01}
+  s.date = %q{2009-06-02}
   s.description = %q{This Sinatra extensions provides following helper methods:
   - image_tag
   - stylesheet_link_tag
@@ -28,17 +28,17 @@ Gem::Specification.new do |s|
      "examples/rsummer/public/stylesheets/src/background.png",
      "examples/rsummer/summer.rb",
      "examples/rsummer/tmp/always_restart.txt",
-     "examples/rsummer/views/app.erb",
+     "examples/rsummer/views/index.erb",
      "examples/rsummer/views/layout.erb",
      "examples/rwinter/config.ru",
-     "examples/rwinter/mapp.rb",
      "examples/rwinter/public/images/tatry2.jpg",
      "examples/rwinter/public/javascripts/mapp.js",
      "examples/rwinter/public/stylesheets/mapp.css",
      "examples/rwinter/public/stylesheets/src/background.png",
      "examples/rwinter/tmp/always_restart.txt",
+     "examples/rwinter/views/index.erb",
      "examples/rwinter/views/layout.erb",
-     "examples/rwinter/views/mapp.erb",
+     "examples/rwinter/winter.rb",
      "examples/summer/config.ru",
      "examples/summer/public/images/tatry1.jpg",
      "examples/summer/public/javascripts/app.js",
@@ -73,7 +73,7 @@ Gem::Specification.new do |s|
      "test/sinatra_static_assets_test.rb",
      "examples/summer/summer.rb",
      "examples/rsummer/summer.rb",
-     "examples/rwinter/mapp.rb",
+     "examples/rwinter/winter.rb",
      "examples/winter/app2.rb"
   ]
 

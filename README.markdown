@@ -130,6 +130,48 @@ Or, if subclassing `Sinatra::Base`, include helpers manually:
       # ...
     end
 
+## Dispatching reusable Sinatra applications
+
+With the latest version of Sinatra it is possible to build
+reusable Sinatra applications. This means that multiple Sinatra applications
+can now be run in isolation and co-exist peacefully with other Rack
+based applications. Subclassing `Sinatra::Base` creates such a
+reusable application.
+
+The `example` directory contains two reusable Sinatra applications:
+*rsummer*, *rwinter* and a rackup file `rconfig.ru` which
+dispatches these applications to `/summer` and `/rsummer` sub URI.
+
+    require 'rsummer/summer'
+    require 'rwinter/winter'
+    
+    map '/summer' do
+      run Sinatra::Summer.new
+    end
+      
+    map '/winter' do
+      run Sinatra::Winter.new
+    end
+
+This rackup file could be used to deploy to virtual host's root.
+
+    <VirtualHost *:80>
+        ServerName hitch.local
+        DocumentRoot /srv/www/hitch.local
+    </VirtualHost>
+
+Creating required by Passenger directories:
+
+    mkdir  /srv/www/hitch.local/{public,tmp}
+
+and moving `config.ru` into `/srv/www/hitch.local`.
+
+With everything in place, after restarting Apache2 the applications
+are accessible from the
+
+    http://hitch.local/summer    http://hitch.local/winter
+
+respectively.
 
 ## Miscellaneous stuff
 
