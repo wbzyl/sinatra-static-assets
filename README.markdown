@@ -140,7 +140,7 @@ reusable application.
 
 The `example` directory contains two reusable Sinatra applications:
 *rsummer*, *rwinter* and a rackup file `rconfig.ru` which
-dispatches these applications to `/summer` and `/rsummer` sub URI.
+dispatches these applications to `/summer` and `/rsummer` sub URI:
 
     require 'rsummer/summer'
     require 'rwinter/winter'
