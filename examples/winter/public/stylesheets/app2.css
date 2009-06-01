@@ -1,0 +1,18 @@
+/*
+    Theme for app2: http://www.colourlovers.com/palette/81363/rainy
+*/
+
+html {
+  margin: 0;
+  padding: 0;
+  background: #659DF1 url(src/skating.png);
+}
+
+body {
+  width: 600px;
+  margin: 1em auto;
+  padding: 1em 2em;
+  border: black solid 1px;
+  background-color: #D8E8FF;
+  font: normal 14px/1.6 Arial, Helvetica, sans-serif;
+}

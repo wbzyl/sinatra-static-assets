@@ -1,0 +1,14 @@
+html {
+  margin: 0;
+  padding: 0;
+  background: #ABA418 url(src/background.png);
+}
+
+body {
+  width: 600px;
+  margin: 1em auto;
+  padding: 1em 2em;
+  border: black solid 1px;
+  background-color: #D1C704;
+  font: normal 14px/1.6 Arial, Helvetica, sans-serif;
+}
