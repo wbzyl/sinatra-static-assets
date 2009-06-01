@@ -134,7 +134,7 @@ Or, if subclassing `Sinatra::Base`, include helpers manually:
 
 With the latest version of Sinatra it is possible to build
 reusable Sinatra applications. This means that multiple Sinatra applications
-can now be run in isolation and co-exist peacefully with other Rack
+can be run in isolation and co-exist peacefully with other Rack
 based applications. Subclassing `Sinatra::Base` creates such a
 reusable application.
 
