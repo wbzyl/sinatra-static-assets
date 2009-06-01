@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sinatra-static-assets}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wlodek Bzyl"]
@@ -49,15 +49,15 @@ Gem::Specification.new do |s|
      "examples/summer/views/index.erb",
      "examples/summer/views/layout.erb",
      "examples/summer/views/topr.erb",
-     "examples/winter/app2.rb",
      "examples/winter/config.ru",
      "examples/winter/public/images/tatry2.jpg",
-     "examples/winter/public/javascripts/app2.js",
-     "examples/winter/public/stylesheets/app2.css",
+     "examples/winter/public/javascripts/app.js",
+     "examples/winter/public/stylesheets/app.css",
      "examples/winter/public/stylesheets/src/skating.png",
      "examples/winter/tmp/always_restart.txt",
      "examples/winter/views/index.erb",
      "examples/winter/views/layout.erb",
+     "examples/winter/winter.rb",
      "lib/sinatra/static_assets.rb",
      "test/sinatra_static_assets_test.rb",
      "test/test_helper.rb"
@@ -74,7 +74,7 @@ Gem::Specification.new do |s|
      "examples/summer/summer.rb",
      "examples/rsummer/summer.rb",
      "examples/rwinter/winter.rb",
-     "examples/winter/app2.rb"
+     "examples/winter/winter.rb"
   ]
 
   if s.respond_to? :specification_version then
