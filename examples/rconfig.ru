@@ -1,12 +1,10 @@
-require 'mapp1/mapp'
-require 'mapp2/mapp'
+require 'rsummer/mapp'
+require 'rwinter/mapp'
 
-Mapp = Rack::Builder.new do
+Rapp = Rack::Builder.new do
   use Rack::ShowExceptions
   use Rack::Lint
   
-  #use Rack::Static, :urls => ["/stylesheets", "/images"], :root => "public"
-
   map '/mapp1' do
     run Sinatra::Mapp1.new
   end
@@ -16,4 +14,4 @@ Mapp = Rack::Builder.new do
   end
 end
 
-run Mapp
+run Rapp
