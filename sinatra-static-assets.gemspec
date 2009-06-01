@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sinatra-static-assets}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wlodek Bzyl"]
@@ -20,25 +20,25 @@ Gem::Specification.new do |s|
   s.files = [
     "TODO",
      "VERSION.yml",
-     "examples/mapp1/config.ru",
-     "examples/mapp1/mapp.rb",
-     "examples/mapp1/public/images/tatry1.jpg",
-     "examples/mapp1/public/javascripts/mapp.js",
-     "examples/mapp1/public/stylesheets/mapp.css",
-     "examples/mapp1/public/stylesheets/src/background.png",
-     "examples/mapp1/tmp/always_restart.txt",
-     "examples/mapp1/views/app.erb",
-     "examples/mapp1/views/layout.erb",
-     "examples/mapp2/config.ru",
-     "examples/mapp2/mapp.rb",
-     "examples/mapp2/public/images/tatry2.jpg",
-     "examples/mapp2/public/javascripts/mapp.js",
-     "examples/mapp2/public/stylesheets/mapp.css",
-     "examples/mapp2/public/stylesheets/src/background.png",
-     "examples/mapp2/tmp/always_restart.txt",
-     "examples/mapp2/views/layout.erb",
-     "examples/mapp2/views/mapp.erb",
-     "examples/mconfig.ru",
+     "examples/rconfig.ru",
+     "examples/rsummer/config.ru",
+     "examples/rsummer/public/images/tatry1.jpg",
+     "examples/rsummer/public/javascripts/mapp.js",
+     "examples/rsummer/public/stylesheets/mapp.css",
+     "examples/rsummer/public/stylesheets/src/background.png",
+     "examples/rsummer/summer.rb",
+     "examples/rsummer/tmp/always_restart.txt",
+     "examples/rsummer/views/app.erb",
+     "examples/rsummer/views/layout.erb",
+     "examples/rwinter/config.ru",
+     "examples/rwinter/mapp.rb",
+     "examples/rwinter/public/images/tatry2.jpg",
+     "examples/rwinter/public/javascripts/mapp.js",
+     "examples/rwinter/public/stylesheets/mapp.css",
+     "examples/rwinter/public/stylesheets/src/background.png",
+     "examples/rwinter/tmp/always_restart.txt",
+     "examples/rwinter/views/layout.erb",
+     "examples/rwinter/views/mapp.erb",
      "examples/summer/config.ru",
      "examples/summer/public/images/tatry1.jpg",
      "examples/summer/public/javascripts/app.js",
@@ -72,8 +72,8 @@ Gem::Specification.new do |s|
     "test/test_helper.rb",
      "test/sinatra_static_assets_test.rb",
      "examples/summer/summer.rb",
-     "examples/mapp2/mapp.rb",
-     "examples/mapp1/mapp.rb",
+     "examples/rsummer/summer.rb",
+     "examples/rwinter/mapp.rb",
      "examples/winter/app2.rb"
   ]
 

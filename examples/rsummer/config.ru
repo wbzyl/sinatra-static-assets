@@ -1,14 +1,8 @@
-require 'mapp'
+require 'summer'
 
-Mapp1 = Rack::Builder.new do
-  use Rack::ShowExceptions
-  use Rack::Lint
+use Rack::ShowExceptions
+use Rack::Lint
   
-  use Rack::Static, :urls => ["/stylesheets", "/images"], :root => "public"
-
-  map '/' do
-    run Sinatra::Mapp1.new
-  end
+map '/' do
+    run Sinatra::Summer.new
 end
-
-run Mapp1
