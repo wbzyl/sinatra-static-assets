@@ -1,17 +1,10 @@
-require 'rsummer/mapp'
-require 'rwinter/mapp'
+require 'rsummer/summer'
+require 'rwinter/winter'
 
-Rapp = Rack::Builder.new do
-  use Rack::ShowExceptions
-  use Rack::Lint
-  
-  map '/mapp1' do
-    run Sinatra::Mapp1.new
-  end
-  
-  map '/mapp2' do
-    run Sinatra::Mapp2.new
-  end
+map '/summer' do
+  run Sinatra::Summer.new
 end
-
-run Rapp
+  
+map '/winter' do
+  run Sinatra::Winter.new
+end

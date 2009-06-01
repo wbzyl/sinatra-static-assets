@@ -1,14 +1,8 @@
-require 'mapp'
+require 'winter'
 
-Mapp2 = Rack::Builder.new do
-  use Rack::ShowExceptions
-  use Rack::Lint
+use Rack::ShowExceptions
+use Rack::Lint
   
-  use Rack::Static, :urls => ["/stylesheets", "/images"], :root => "public"
-  
-  map '/' do
-    run Sinatra::Mapp2.new
-  end
+map '/' do
+    run Sinatra::Winter.new
 end
-
-run Mapp2

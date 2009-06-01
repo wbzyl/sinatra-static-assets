@@ -6,7 +6,7 @@ gem 'wbzyl-sinatra-static-assets'
 require 'sinatra/static_assets'
 
 module Sinatra
-  class Summer < Sinatra::Base
+  class Winter < Sinatra::Base
     helpers Sinatra::UrlForHelper
     helpers Sinatra::StaticAssets
     
@@ -14,7 +14,7 @@ module Sinatra
     set :static, true  
     
     get '/?' do
-      @title = "Tatra Mountains, Błyszcz (2159 m)"
+      @title = "Tatra Mountains, Dolina Gąsienicowa (1500 m)"
       erb :index
     end
   end
