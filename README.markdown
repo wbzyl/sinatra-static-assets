@@ -153,23 +153,27 @@ dispatches these applications to `/summer` and `/rsummer` sub URI.
       run Sinatra::Winter.new
     end
 
-This rackup file could be used to deploy to virtual host's root.
+This rackup file could be used to deploy to virtual host's root:
 
     <VirtualHost *:80>
         ServerName hitch.local
         DocumentRoot /srv/www/hitch.local
     </VirtualHost>
 
-Creating required by Passenger directories:
+To this end, create directories required by Passenger:
 
-    mkdir  /srv/www/hitch.local/{public,tmp}
+    mkdir /srv/www/hitch.local/{public,tmp}
 
-and moving `config.ru` into `/srv/www/hitch.local`.
+and move `config.ru` into `/srv/www/hitch.local`.
 
-With everything in place, after restarting Apache2 the applications
-are accessible from the
+With everything in place, after restarting Apache2, 
+the applications are accessible from the
 
-    http://hitch.local/summer    http://hitch.local/winter
+    http://hitch.local/summer    
+
+and
+
+    http://hitch.local/winter
 
 respectively.
 
