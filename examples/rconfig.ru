@@ -1,5 +1,8 @@
-require 'rsummer/summer'
-require 'rwinter/winter'
+$LOAD_PATH.unshift('rsummer')
+require 'summer'
+
+$LOAD_PATH.unshift('rwinter')
+require 'winter'
 
 map '/summer' do
   run Sinatra::Summer.new

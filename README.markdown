@@ -142,8 +142,11 @@ The `example` directory contains two reusable Sinatra applications:
 *rsummer*, *rwinter* and a rackup file `rconfig.ru` which
 dispatches these applications to `/summer` and `/rsummer` sub URI:
 
-    require 'rsummer/summer'
-    require 'rwinter/winter'
+    $LOAD_PATH.unshift('rsummer')
+    require 'summer'
+
+    $LOAD_PATH.unshift('rwinter')
+    require 'winter'
     
     map '/summer' do
       run Sinatra::Summer.new
@@ -153,18 +156,26 @@ dispatches these applications to `/summer` and `/rsummer` sub URI:
       run Sinatra::Winter.new
     end
 
-This rackup file could be used to deploy to virtual host's root:
+Run `rconfig.ru` file with:
+
+    rackup -p 3000 rconfig.ru
+
+This file can be used to deploy to virtual host's root with Passenger.
+
+To this end, create an Apache2 configuration file with the following
+content:
 
     <VirtualHost *:80>
         ServerName hitch.local
         DocumentRoot /srv/www/hitch.local
     </VirtualHost>
 
-To this end, create directories required by Passenger:
+Next, create directories required by Passenger:
 
     mkdir /srv/www/hitch.local/{public,tmp}
 
-and move `config.ru` into `/srv/www/hitch.local`.
+and copy `config.ru` into `/srv/www/hitch.local` and
+update `LOAD_PATH` in the copied file.
 
 With everything in place, after restarting Apache2, 
 the applications are accessible from the
