@@ -191,10 +191,10 @@ respectively.
 
 ## Miscellaneous stuff
 
-1. The `examples` directory contains *summer* and *winter* applications.
+1\. The `examples` directory contains *summer* and *winter* applications.
 
-2. In order to create a virual host add the following to */etc/hosts/*: 
+2\. In order to create a virual host add the following to */etc/hosts/*: 
 
-        127.0.0.1       localhost.localdomain localhost hitch.local
+    127.0.0.1       localhost.localdomain localhost hitch.local
 
-3. TODO: write tests
+3\. TODO: write tests
