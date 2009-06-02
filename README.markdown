@@ -160,7 +160,8 @@ Run `rconfig.ru` file with:
 
     rackup -p 3000 rconfig.ru
 
-This file can be used to deploy to virtual host's root with Passenger.
+This file could **also** be used to deploy to virtual host's root with
+Passenger.
 
 To this end, create an Apache2 configuration file with the following
 content:
