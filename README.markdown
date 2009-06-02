@@ -175,7 +175,7 @@ Next, create directories required by Passenger:
 
     mkdir /srv/www/hitch.local/{public,tmp}
 
-and copy `config.ru` into `/srv/www/hitch.local` and
+and, finally, copy `config.ru` into `/srv/www/hitch.local` and
 update `LOAD_PATH` in the copied file.
 
 With everything in place, after restarting Apache2, 
