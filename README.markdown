@@ -122,10 +122,14 @@ In order to use include the following in a Sinatra application:
 
 Or, if subclassing `Sinatra::Base`, include helpers manually:
 
+    gem 'emk-sinatra-url-for'
+    require 'sinatra/url_for'
+      
     gem 'wbzyl-sinatra-static-assets'
     require 'sinatra/static_assets'
       
     class Summer < Sinatra::Base
+      helpers Sinatra::UrlForHelper
       helpers Sinatra::StaticAssets
       # ...
     end
