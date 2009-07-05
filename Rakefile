@@ -20,7 +20,7 @@ This Sinatra extensions provides following helper methods:
     gemspec.files = %w{TODO VERSION.yml} + FileList['lib/**/*.rb', 'test/**/*.rb', 'examples/**/*']
     
     gemspec.add_runtime_dependency 'rack', '>=1.0.0'
-    gemspec.add_runtime_dependency 'sinatra'
+    gemspec.add_runtime_dependency 'sinatra', '>=0.9.1'
     gemspec.add_runtime_dependency 'emk-sinatra-url-for', '>=0.2.1'      
     
     gemspec.add_development_dependency 'rack-test', '>=0.3.0'
