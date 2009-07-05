@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wlodek Bzyl"]
-  s.date = %q{2009-06-06}
+  s.date = %q{2009-07-05}
   s.description = %q{This Sinatra extensions provides following helper methods:
   - image_tag
   - stylesheet_link_tag
@@ -59,8 +59,8 @@ Gem::Specification.new do |s|
      "examples/winter/views/layout.erb",
      "examples/winter/winter.rb",
      "lib/sinatra/static_assets.rb",
-     "test/sinatra_static_assets_test.rb",
-     "test/test_helper.rb"
+     "test/sinatra_app.rb",
+     "test/sinatra_static_assets_test.rb"
   ]
   s.homepage = %q{http://github.com/wbzyl/sinatra-static-assets}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -69,8 +69,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.4}
   s.summary = %q{Sinatra extension providing helper methods to output tags for static assetgemspec.}
   s.test_files = [
-    "test/test_helper.rb",
-     "test/sinatra_static_assets_test.rb",
+    "test/sinatra_static_assets_test.rb",
+     "test/sinatra_app.rb",
      "examples/summer/summer.rb",
      "examples/rsummer/summer.rb",
      "examples/rwinter/winter.rb",
@@ -83,18 +83,18 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rack>, [">= 1.0.0"])
-      s.add_runtime_dependency(%q<sinatra>, [">= 0"])
+      s.add_runtime_dependency(%q<sinatra>, [">= 0.9.1"])
       s.add_runtime_dependency(%q<emk-sinatra-url-for>, [">= 0.2.1"])
       s.add_development_dependency(%q<rack-test>, [">= 0.3.0"])
     else
       s.add_dependency(%q<rack>, [">= 1.0.0"])
-      s.add_dependency(%q<sinatra>, [">= 0"])
+      s.add_dependency(%q<sinatra>, [">= 0.9.1"])
       s.add_dependency(%q<emk-sinatra-url-for>, [">= 0.2.1"])
       s.add_dependency(%q<rack-test>, [">= 0.3.0"])
     end
   else
     s.add_dependency(%q<rack>, [">= 1.0.0"])
-    s.add_dependency(%q<sinatra>, [">= 0"])
+    s.add_dependency(%q<sinatra>, [">= 0.9.1"])
     s.add_dependency(%q<emk-sinatra-url-for>, [">= 0.2.1"])
     s.add_dependency(%q<rack-test>, [">= 0.3.0"])
   end
