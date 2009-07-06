@@ -19,3 +19,24 @@ get "/image_tag" do
 #{image_tag("/images/foo.jpg", :alt => "[foo image]")}
 EOD
 end
+
+get "/stylesheet_link_tag" do
+  content_type "text/plain"
+  <<"EOD"
+#{stylesheet_link_tag("/stylesheets/winter.css", "/stylesheets/summer.css", :media => "projection")}
+EOD
+end
+
+get "/javascript_script_tag" do
+  content_type "text/plain"
+  <<"EOD"
+#{javascript_script_tag "/javascripts/summer.js", :charset => "iso-8859-2"}
+EOD
+end
+
+get "/link_to_tag" do
+  content_type "text/plain"
+  <<"EOD"
+#{link_to "Tatry Mountains Rescue Team", "/topr"}
+EOD
+end

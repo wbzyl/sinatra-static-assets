@@ -21,7 +21,7 @@ http://example.org/bar/foo
 EOD
   end
   
-  def test_image_tag_returns_absolute_paths_and_full_urls
+  def test_image_tag_returns_sub_uri
     get '/image_tag', {}, 'SCRIPT_NAME' => '/bar'
     assert last_response.ok?
     assert_equal last_response.body,  <<EOD
@@ -29,11 +29,29 @@ EOD
 EOD
   end
 
+  def test_stylesheet_link_tag_returns_sub_uri
+    get '/stylesheet_link_tag', {}, 'SCRIPT_NAME' => '/bar'
+    assert last_response.ok?
+    assert_equal last_response.body,  <<EOD
+<link charset="utf-8" href="/bar/stylesheets/winter.css" media="projection" rel="stylesheet" type="text/css">
+<link charset="utf-8" href="/bar/stylesheets/summer.css" media="projection" rel="stylesheet" type="text/css">
+EOD
+  end
+  
+  def test_javascript_script_tag_returns_sub_uri
+    get '/javascript_script_tag', {}, 'SCRIPT_NAME' => '/bar'
+    assert last_response.ok?
+    assert_equal last_response.body,  <<EOD
+<script charset="iso-8859-2" src="/bar/javascripts/summer.js" type="text/javascript"></script>
+EOD
+  end
+  
+  def test_link_to_tag_returns_sub_uri
+    get '/link_to_tag', {}, 'SCRIPT_NAME' => '/bar'
+    assert last_response.ok?
+    assert_equal last_response.body,  <<EOD
+<a href='/bar/topr'>Tatry Mountains Rescue Team</a>
+EOD
+  end
   
 end
-
-__END__
-
-stylesheet_link_tag "/stylesheets/screen.css", "/stylesheets/summer.css", :media => "projection"
-javascript_script_tag "/javascripts/jquery.js", "/javascripts/summer.js", :charset => "iso-8859-2"
-link_to "Tatry Mountains Rescue Team", "/topr"
