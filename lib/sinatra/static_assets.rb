@@ -1,7 +1,4 @@
-gem 'sinatra', '>=0.9.2'
 require 'sinatra/base'
-
-gem 'emk-sinatra-url-for', '>=0.2.1'
 require 'sinatra/url_for'
 
 module Sinatra
