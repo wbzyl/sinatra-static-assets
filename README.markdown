@@ -5,7 +5,7 @@ Gem *sinatra-static-assets* implements the following helpers methods:
 * `image_tag`
 * `stylesheet_link_tag`
 * `javascript_script_tag`
-* `link_tag`
+* `link_to`
 
 To install it, run:
 
