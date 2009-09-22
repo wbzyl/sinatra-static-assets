@@ -30,7 +30,7 @@ module Sinatra
     end
     
     def link_to(desc, url)
-      "<a href='#{url_for url}'>#{desc}</a>"
+      "<a href='#{url_for(url)}'>#{desc}</a>"
     end
     
     private
