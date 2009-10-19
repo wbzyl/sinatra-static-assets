@@ -9,7 +9,7 @@ Gem *sinatra-static-assets* implements the following helpers methods:
 
 To install it, run:
 
-    sudo gem install sinatra-static-assets -s http://gemcutter.com
+    sudo gem install sinatra-static-assets -s http://gemcutter.org
 
 All these methods are simple wrappers around the `url_for` method 
 from the [sinatra-url-for](http://github.com/emk/sinatra-url-for/) gem.
