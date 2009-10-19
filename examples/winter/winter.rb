@@ -3,7 +3,7 @@
 require 'rubygems'
 require 'sinatra'
 
-gem 'wbzyl-sinatra-static-assets'
+gem 'sinatra-static-assets'
 require 'sinatra/static_assets'
 
 get "/?" do

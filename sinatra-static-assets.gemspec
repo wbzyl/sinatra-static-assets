@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sinatra-static-assets}
-  s.version = "0.2.5"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wlodek Bzyl"]
-  s.date = %q{2009-09-14}
+  s.date = %q{2009-10-19}
   s.description = %q{This Sinatra extensions provides following helper methods:
   - image_tag
   - stylesheet_link_tag
@@ -71,12 +71,12 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Sinatra extension providing helper methods to output tags for static assetgemspec.}
   s.test_files = [
-    "test/sinatra_app.rb",
-     "test/sinatra_static_assets_test.rb",
+    "test/sinatra_static_assets_test.rb",
+     "test/sinatra_app.rb",
      "examples/summer/summer.rb",
+     "examples/rsummer/summer.rb",
      "examples/rwinter/winter.rb",
-     "examples/winter/winter.rb",
-     "examples/rsummer/summer.rb"
+     "examples/winter/winter.rb"
   ]
 
   if s.respond_to? :specification_version then

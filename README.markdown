@@ -9,7 +9,7 @@ Gem *sinatra-static-assets* implements the following helpers methods:
 
 To install it, run:
 
-    sudo gem install wbzyl-sinatra-static-assets -s http://gems.github.com
+    sudo gem install sinatra-static-assets -s http://gemcutter.com
 
 All these methods are simple wrappers around the `url_for` method 
 from the [sinatra-url-for](http://github.com/emk/sinatra-url-for/) gem.
@@ -117,7 +117,7 @@ The default value of *closed* option is `false`.
 
 In order to use include the following in a Sinatra application: 
 
-    gem 'wbzyl-sinatra-static-assets'
+    gem 'sinatra-static-assets'
     require 'sinatra/static_assets'
 
 Or, if subclassing `Sinatra::Base`, include helpers manually:
@@ -125,7 +125,7 @@ Or, if subclassing `Sinatra::Base`, include helpers manually:
     gem 'emk-sinatra-url-for'
     require 'sinatra/url_for'
       
-    gem 'wbzyl-sinatra-static-assets'
+    gem 'sinatra-static-assets'
     require 'sinatra/static_assets'
       
     class Summer < Sinatra::Base

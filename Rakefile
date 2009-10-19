@@ -27,6 +27,7 @@ This Sinatra extensions provides following helper methods:
 
     gemspec.rubyforge_project = 'sinatra-static-assets'
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available."
   puts "Install it with:"
