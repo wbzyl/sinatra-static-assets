@@ -1,4 +1,4 @@
-# Sinatra Extension: StaticAssets  
+\# Sinatra Extension: StaticAssets  
 
 Gem *sinatra-static-assets* implements the following helpers methods:
 
@@ -200,3 +200,6 @@ respectively.
 2\. In order to create a virual host add the following to */etc/hosts/*: 
 
     127.0.0.1       localhost.localdomain localhost hitch.local
+
+or, read [editing /etc/hosts is waste of my 
+time](http://www.taylorluk.com/articles/2009/08/12/hey-pac-man-sup-subdomains).
