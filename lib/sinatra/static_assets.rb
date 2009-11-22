@@ -13,15 +13,13 @@ module Sinatra
     # The default value of +closed+ option is +false+.
     #
     def image_tag(source, options = {})
-      closed = options.delete(:closed)
       options[:src] = url_for(source)
-      tag("img", options, closed)
+      tag("img", options)
     end
 
     def stylesheet_link_tag(*sources)
       list, options = extract_options(sources)
-      closed = options.delete(:closed)
-      list.collect { |source| stylesheet_tag(source, options, closed) }.join("\n")
+      list.collect { |source| stylesheet_tag(source, options) }.join("\n")
     end
 
     def javascript_script_tag(*sources)
@@ -29,33 +27,42 @@ module Sinatra
       list.collect { |source| javascript_tag(source, options) }.join("\n")
     end
     
-    def link_to(desc, url)
-      "<a href='#{url_for(url)}'>#{desc}</a>"
+    def link_to(desc, url, options = {})
+      tag("a", options.merge(:href => url_for(url))) do
+        desc
+      end
     end
     
     private
     
-    def tag(name, options = {}, closed = false)
-      "<#{name}#{tag_options(options) if options}#{closed ? " />" : ">"}"
+    def tag(name, options = {})
+      start_tag = "<#{name}#{tag_options(options) if options}"
+      if block_given?
+        content = yield
+        "#{start_tag}>#{content}</#{name}>"
+      else
+        "#{start_tag}/>"
+      end
     end
     
     def tag_options(options)
       unless options.empty?
         attrs = []
-        attrs = options.map { |key, value| %(#{key}="#{value}") }
+        attrs = options.map { |key, value| %(#{key}="#{Rack::Utils.escape_html(value)}") }
         " #{attrs.sort * ' '}" unless attrs.empty?
       end
     end
     
-    def stylesheet_tag(source, options, closed = false)
+    def stylesheet_tag(source, options = {})
       tag("link", { :type => "text/css",
             :charset => "utf-8", :media => "screen", :rel => "stylesheet",
-            :href => url_for(source) }.merge(options), closed)
+            :href => url_for(source) }.merge(options))
     end
     
-    def javascript_tag(source, options)
+    def javascript_tag(source, options = {})
       tag("script", { :type => "text/javascript", :charset => "utf-8",
-            :src => url_for(source) }.merge(options), false) + "</script>"
+            :src => url_for(source) }.merge(options)) do
+      end
     end
     
     def extract_options(a)
