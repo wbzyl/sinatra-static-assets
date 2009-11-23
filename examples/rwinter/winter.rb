@@ -8,7 +8,7 @@ require 'sinatra/static_assets'
 module Sinatra
   class Winter < Sinatra::Base
     helpers Sinatra::UrlForHelper
-    helpers Sinatra::StaticAssets
+    register Sinatra::StaticAssets
     
     set :app_file,  __FILE__
     set :static, true  

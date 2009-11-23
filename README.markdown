@@ -1,4 +1,4 @@
-\# Sinatra Extension: StaticAssets  
+# Sinatra Extension: StaticAssets
 
 Gem *sinatra-static-assets* implements the following helpers methods:
 
@@ -102,14 +102,18 @@ deployments](http://www.modrails.com/documentation/Users%20guide%20Apache.html#s
 
 ## Usage examples
 
-In HTML `<link>` and `<img>` tags have no end tag.
+In HTML (and HTML5) `<link>` and `<img>` tags have no end tag.
 In XHTML, on the contrary, these tags must be properly closed.
 
 We can choose the appropriate behaviour with *closed* option:
 
     image_tag "/images/tatry1.jpg", :alt => "Błyszcz, 2159 m", :closed => true
 
-The default value of *closed* option is `false`.
+The default value of *closed* option is `false`. We can change the default value with:
+
+    enable :xhtml
+
+We can pass mutliple stylesheets or scripts:
 
     stylesheet_link_tag "/stylesheets/screen.css", "/stylesheets/summer.css", :media => "projection"
     javascript_script_tag "/javascripts/jquery.js", "/javascripts/summer.js", :charset => "iso-8859-2"
@@ -130,7 +134,7 @@ Or, if subclassing `Sinatra::Base`, include helpers manually:
       
     class Summer < Sinatra::Base
       helpers Sinatra::UrlForHelper
-      helpers Sinatra::StaticAssets
+      register Sinatra::StaticAssets
       # ...
     end
 
