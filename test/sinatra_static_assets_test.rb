@@ -25,7 +25,7 @@ EOD
     get '/image_tag', {}, 'SCRIPT_NAME' => '/bar'
     assert last_response.ok?
     assert_equal last_response.body,  <<EOD
-<img alt="[foo image]" src="/bar/images/foo.jpg"/>
+<img alt="[foo image]" src="/bar/images/foo.jpg">
 EOD
   end
 
@@ -33,8 +33,8 @@ EOD
     get '/stylesheet_link_tag', {}, 'SCRIPT_NAME' => '/bar'
     assert last_response.ok?
     assert_equal last_response.body,  <<EOD
-<link charset="utf-8" href="/bar/stylesheets/winter.css" media="projection" rel="stylesheet" type="text/css"/>
-<link charset="utf-8" href="/bar/stylesheets/summer.css" media="projection" rel="stylesheet" type="text/css"/>
+<link charset="utf-8" href="/bar/stylesheets/winter.css" media="projection" rel="stylesheet" type="text/css">
+<link charset="utf-8" href="/bar/stylesheets/summer.css" media="projection" rel="stylesheet" type="text/css">
 EOD
   end
   
