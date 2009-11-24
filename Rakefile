@@ -31,7 +31,7 @@ This Sinatra extensions provides following helper methods:
 rescue LoadError
   puts "Jeweler not available."
   puts "Install it with:"
-  puts "  sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+  puts "  sudo gem install jeweler s http://gemcutter.com"
 end
 
 Rake::TestTask.new(:test) do |t|
