@@ -21,7 +21,7 @@ This Sinatra extensions provides following helper methods:
     
     gemspec.add_runtime_dependency 'rack', '>=1.0.0'
     gemspec.add_runtime_dependency 'sinatra', '>=0.9.1'
-    gemspec.add_runtime_dependency 'emk-sinatra-url-for', '>=0.2.1'      
+    gemspec.add_runtime_dependency 'sinatra-url-for', '>=0.2.1'      
 
     gemspec.add_development_dependency 'rack-test', '>=0.3.0'
 
@@ -31,7 +31,7 @@ This Sinatra extensions provides following helper methods:
 rescue LoadError
   puts "Jeweler not available."
   puts "Install it with:"
-  puts "  sudo gem install jeweler s http://gemcutter.com"
+  puts "  sudo gem install jeweler"
 end
 
 Rake::TestTask.new(:test) do |t|
