@@ -23,6 +23,10 @@ module Sinatra
         list.collect { |source| stylesheet_tag(source, options) }.join("\n")
       end
 
+      def javascript_include_tag(*sources)
+        javascript_script_tag *sources
+      end
+
       def javascript_script_tag(*sources)
         list, options = extract_options(sources)
         list.collect { |source| javascript_tag(source, options) }.join("\n")
