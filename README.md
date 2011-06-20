@@ -11,8 +11,8 @@ To install it, run:
 
     sudo gem install sinatra-static-assets -s http://gemcutter.org
 
-All these methods are simple wrappers around the `url_for` method 
-from the [sinatra-url-for](http://github.com/emk/sinatra-url-for/) gem.
+All these methods are simple wrappers around the `uri` method
+from the [sinatra](http://github.com/sinatra/sinatra) gem.
 
 ## When will you need it?
 
@@ -23,12 +23,12 @@ sub URI.
 
 Example: Suppose that we already have a virtual host `hitch.local`
 and two Sinatra applications that live in
-`/home/me/www/summer` and `/home/me/www/winter` 
+`/home/me/www/summer` and `/home/me/www/winter`
 directories, respectively.
-We want our Sinatra applications to be accessible from 
-the following sub URI: 
+We want our Sinatra applications to be accessible from
+the following sub URI:
 
-    http://hitch.local/summer 
+    http://hitch.local/summer
 
 and
 
@@ -40,7 +40,7 @@ we need to create a new configuration file with the following content:
     <VirtualHost *:80>
       ServerName hitch.local
       DocumentRoot /srv/www/hitch.local
-      
+
       RackBaseURI /summer
       RackBaseURI /winter
     </VirtualHost>
@@ -50,7 +50,7 @@ and a link to the applications directories in `/srv/www/hitch.local`:
     ln -s /home/me/www/summer/public /srv/www/hitch.local/summer
     ln -s /home/me/www/winter/public /srv/www/hitch.local/winter
 
-After restarting an Apache2 server and visiting, for example, the first 
+After restarting an Apache2 server and visiting, for example, the first
 application at `http://hitch.local/summer` we see that links to
 images, stylesheets and javascripts are broken.
 
@@ -60,7 +60,7 @@ images/stylesheets/javascripts with absolute URI:
     /images/tatry1.jpg    /stylesheets/app.css    /javascripts/app.js
 
 That setup **works** whenever we are running applications locally.
-The absolute URI above tells a browser to request images 
+The absolute URI above tells a browser to request images
 (stylesheets and javascripts) from:
 
     http://localhost:4567/images/tatry1.jpg
@@ -80,24 +80,24 @@ As a result the images are at:
 
     http://hitch.local/summer/images/tatry1.jpg
 
-but we request them from: 
+but we request them from:
 
     http://hitch.local/images/tatry1.jpg
 
-And this **does not work** because there is no application 
+And this **does not work** because there is no application
 dispatched to *images* sub URI.
 
-The recommended way to deal with an absolute URI 
+The recommended way to deal with an absolute URI
 is to use a helper method that automatically converts
 `/images/tatry1.jpg` to `/summer/images/tatry1.jpg`
-for application dispatched to `/summer` sub URI. 
+for application dispatched to `/summer` sub URI.
 
-In the above example you can simply remove the `<img>` 
-HTML tag and replace it with a Ruby inline code like this: 
+In the above example you can simply remove the `<img>`
+HTML tag and replace it with a Ruby inline code like this:
 
     <%= image_tag("/images/tatry1.jpg", :alt => "Błyszcz, 2159 m") %>
 
-See also, [How to fix broken images/CSS/JavaScript URIs in sub-URI 
+See also, [How to fix broken images/CSS/JavaScript URIs in sub-URI
 deployments](http://www.modrails.com/documentation/Users%20guide%20Apache.html#sub_uri_deployment_uri_fix)
 
 ## Usage examples
@@ -119,21 +119,15 @@ We can pass mutliple stylesheets or scripts:
     javascript_script_tag "/javascripts/jquery.js", "/javascripts/summer.js", :charset => "iso-8859-2"
     link_to "Tatry Mountains Rescue Team", "/topr"
 
-In order to use include the following in a Sinatra application: 
+In order to use include the following in a Sinatra application:
 
-    gem 'sinatra-static-assets'
     require 'sinatra/static_assets'
 
 Or, if subclassing `Sinatra::Base`, include helpers manually:
 
-    gem 'sinatra-url-for'
-    require 'sinatra/url_for'
-      
-    gem 'sinatra-static-assets'
     require 'sinatra/static_assets'
-      
+
     class Summer < Sinatra::Base
-      helpers Sinatra::UrlForHelper
       register Sinatra::StaticAssets
       # ...
     end
@@ -155,11 +149,11 @@ dispatches these applications to `/summer` and `/winter` sub URI:
 
     $LOAD_PATH.unshift('rwinter')
     require 'winter'
-    
+
     map '/summer' do
       run Sinatra::Summer.new
     end
-      
+
     map '/winter' do
       run Sinatra::Winter.new
     end
@@ -186,10 +180,10 @@ Next, create directories required by Passenger:
 and, finally, copy `config.ru` into `/srv/www/hitch.local` and
 update `LOAD_PATH` in the copied file.
 
-With everything in place, after restarting Apache2, 
+With everything in place, after restarting Apache2,
 the applications are accessible from the
 
-    http://hitch.local/summer    
+    http://hitch.local/summer
 
 and
 
@@ -201,9 +195,9 @@ respectively.
 
 1\. The `examples` directory contains *summer* and *winter* applications.
 
-2\. In order to create a virual host add the following to */etc/hosts/*: 
+2\. In order to create a virual host add the following to */etc/hosts/*:
 
     127.0.0.1       localhost.localdomain localhost hitch.local
 
-or, read [editing /etc/hosts is waste of my 
+or, read [editing /etc/hosts is waste of my
 time](http://www.taylorluk.com/articles/2009/08/12/hey-pac-man-sup-subdomains).
