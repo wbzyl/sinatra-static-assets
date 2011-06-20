@@ -28,6 +28,8 @@ module Sinatra
         list.collect { |source| javascript_tag(source, options) }.join("\n")
       end
 
+      alias :javascript_include_tag, :javascript_script_tag
+
       def link_to(desc, url, options = {})
         tag("a", options.merge(:href => url_for(url))) do
           desc
