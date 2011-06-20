@@ -5,7 +5,7 @@ require "sinatra/version"
 
 Gem::Specification.new do |s|
   s.name        = "sinatra-static-assets"
-  s.version     = Sinatra::StaticAssets::VERSION
+  s.version     = "1.0.0"
   s.authors     = ["Wlodek Bzyl"]
   s.email       = ["matwb@ug.edu.pl"]
   s.homepage    = ""
