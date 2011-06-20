@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'sinatra/url_for'
 
 module Sinatra
   module StaticAssets
@@ -28,7 +27,7 @@ module Sinatra
         list.collect { |source| javascript_tag(source, options) }.join("\n")
       end
 
-      alias :javascript_include_tag, :javascript_script_tag
+      alias :javascript_include_tag :javascript_script_tag
 
       def link_to(desc, url, options = {})
         tag("a", options.merge(:href => url_for(url))) do
@@ -37,6 +36,10 @@ module Sinatra
       end
 
       private
+
+      def url_for(addr, absolute = false)
+        uri(addr, absolute == :full ? true : false, true)
+      end
 
       def tag(name, local_options = {})
         start_tag = "<#{name}#{tag_options(local_options) if local_options}"
@@ -51,7 +54,8 @@ module Sinatra
       def tag_options(options)
         unless options.empty?
           attrs = []
-          attrs = options.map { |key, value| %(#{key}="#{Rack::Utils.escape_html(value)}") }
+          #attrs = options.map { |key, value| %(#{key}="#{Rack::Utils.escape_html(value)}") }
+          attrs = options.map { |key, value| %(#{key}="#{value}") }
           " #{attrs.sort * ' '}" unless attrs.empty?
         end
       end
@@ -70,7 +74,7 @@ module Sinatra
 
       def extract_options(a)
         opts = a.last.is_a?(::Hash) ? a.pop : {}
-        [a, opts]  
+        [a, opts]
       end
 
     end

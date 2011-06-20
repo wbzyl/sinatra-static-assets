@@ -1,2 +1,4 @@
+source "http://rubygems.org"
 
-gem "emk-sinatra-url-for"
+# Specify your gem's dependencies in sinatra-static-assets.gemspec
+gemspec

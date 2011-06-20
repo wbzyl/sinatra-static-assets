@@ -1,6 +1,4 @@
 *.gem
-*~
-*.swp
-*.swo
-\#*
-.\#*
+.bundle
+Gemfile.lock
+pkg/*

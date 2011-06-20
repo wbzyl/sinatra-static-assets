@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 require 'sinatra'
-
-gem 'sinatra-static-assets'
 require 'sinatra/static_assets'
 
 get "/?" do

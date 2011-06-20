@@ -8,11 +8,10 @@ require 'sinatra/static_assets'
 
 module Sinatra
   class XHTML < Sinatra::Base
-    helpers Sinatra::UrlForHelper
     register Sinatra::StaticAssets
 
     enable :xhtml
-    
+
     get '/image_tag' do
       content_type "text/plain"
       "#{image_tag("/images/foo.jpg")}"

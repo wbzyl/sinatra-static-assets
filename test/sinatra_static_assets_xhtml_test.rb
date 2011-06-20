@@ -1,4 +1,4 @@
-require 'sinatra_baseapp'
+require './test/sinatra_baseapp'
 require 'test/unit'
 require 'rack/test'
 
@@ -6,9 +6,9 @@ class SintraStaticAssetsXHTMLTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Sinatra::XHTML.new    
+    Sinatra::XHTML.new
   end
-  
+
   def test_image_tag_closes
     get '/image_tag'
     assert last_response.ok?
@@ -21,5 +21,5 @@ class SintraStaticAssetsXHTMLTest < Test::Unit::TestCase
     assert_equal last_response.body,
       "<link charset=\"utf-8\" href=\"/stylesheets/winter.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\"/>"
   end
-  
+
 end

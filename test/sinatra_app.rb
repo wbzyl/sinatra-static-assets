@@ -4,7 +4,6 @@ $:.unshift(path) unless $:.include?(path)
 require 'rubygems'
 
 require 'sinatra'
-require 'sinatra/url_for'
 require 'sinatra/static_assets'
 
 get "/url_for" do
