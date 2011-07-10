@@ -1,4 +1,4 @@
-require 'summer'
+require './summer'
 
 use Rack::ShowExceptions
 use Rack::Lint

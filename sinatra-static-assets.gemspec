@@ -1,12 +1,11 @@
 # -*- encoding: utf-8 -*-
 
 $:.push File.expand_path("../lib", __FILE__)
-require "sinatra/version"
 
 Gem::Specification.new do |s|
   s.name        = "sinatra-static-assets"
   s.version     = "1.0.0"
-  s.authors     = ["Wlodek Bzyl"]
+  s.authors     = ["Włodek Bzyl"]
   s.email       = ["matwb@ug.edu.pl"]
   s.homepage    = ""
   s.summary     = %q{A Sinatra extension.}
@@ -15,7 +14,7 @@ Gem::Specification.new do |s|
     - stylesheet_link_tag
     - javascript_script_tag}
 
-  s.add_runtime_dependency 'sinatra', '>= 1.2'
+  s.add_runtime_dependency 'sinatra', '>= 1.1.0'
 
   s.add_development_dependency 'rack'
   s.add_development_dependency 'rack-test'
