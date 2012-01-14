@@ -47,7 +47,7 @@ module Sinatra
           content = yield
           "#{start_tag}>#{content}</#{name}>"
         else
-          "#{start_tag}#{"/" if options.xhtml}>"
+          "#{start_tag}#{"/" if setting.xhtml}>"
         end
       end
 
