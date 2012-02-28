@@ -1,6 +1,3 @@
-path = File.expand_path("../lib" + File.dirname(__FILE__))
-$:.unshift(path) unless $:.include?(path)
-
 require 'rubygems'
 require 'sinatra/base'
 

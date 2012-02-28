@@ -1,3 +1,4 @@
+require './test/test_helper'
 require './test/sinatra_baseapp'
 require 'test/unit'
 require 'rack/test'
