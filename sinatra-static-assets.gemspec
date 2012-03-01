@@ -4,7 +4,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "sinatra-static-assets"
-  s.version     = "1.0.2"
+  s.version     = "1.0.3"
   s.authors     = ["Włodek Bzyl"]
   s.email       = ["matwb@ug.edu.pl"]
   s.homepage    = ""
