@@ -3,6 +3,10 @@ require 'sinatra/base'
 module Sinatra
   module StaticAssets
     module Helpers
+
+      @@asset_timestamps_cache = {}
+      @@asset_mutex ||= Mutex.new
+
       # In HTML <link> and <img> tags have no end tag.
       # In XHTML, on the contrary, these tags must be properly closed.
       #
@@ -40,6 +44,35 @@ module Sinatra
       def url_for(addr, absolute = false)
         uri(addr, absolute == :full ? true : false, true)
       end
+      
+      def is_uri?(path)
+          path =~ %r{^[-a-z]+://|^cid:|^//}
+      end
+
+      def asset_url_for(source)
+        url = url_for(source)
+        return url if is_uri?(source)
+          
+        timestamp = asset_timestamp(source)
+        url += "?#{timestamp}" unless timestamp.empty?
+        return url
+      end
+
+      def asset_timestamp(source)
+        if timestamp = @@asset_timestamps_cache[source]
+          return timestamp
+        else
+          path = asset_file_path(source)
+          timestamp = File.exists?(path) ? File.mtime(path).to_i.to_s : ''
+          @@asset_mutex.synchronize {
+            @@asset_timestamps_cache[source] = timestamp
+          }
+        end
+      end
+
+      def asset_file_path(path)
+        File.join(settings.root, 'public', path)
+      end
 
       def tag(name, local_options = {})
         start_tag = "<#{name}#{tag_options(local_options) if local_options}"
@@ -63,12 +96,12 @@ module Sinatra
       def stylesheet_tag(source, options = {})
         tag("link", { :type => "text/css",
             :charset => "utf-8", :media => "screen", :rel => "stylesheet",
-            :href => url_for(source) }.merge(options))
+            :href => asset_url_for(source) }.merge(options))
       end
 
       def javascript_tag(source, options = {})
         tag("script", { :type => "text/javascript", :charset => "utf-8",
-            :src => url_for(source) }.merge(options)) do
+            :src => asset_url_for(source) }.merge(options)) do
             end
       end
 

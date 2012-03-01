@@ -1,6 +1,3 @@
-path = File.expand_path("../lib" + File.dirname(__FILE__))
-$:.unshift(path) unless $:.include?(path)
-
 require 'rubygems'
 
 require 'sinatra'
@@ -15,6 +12,14 @@ get "/url_for" do
 EOD
 end
 
+get "/asset_url_for" do
+  content_type "text/plain"
+  <<"EOD"
+#{asset_url_for("test.css")}
+#{asset_url_for("http://example.org/test.css")}
+EOD
+end
+
 get "/image_tag" do
   content_type "text/plain"
   <<"EOD"
@@ -25,7 +30,7 @@ end
 get "/stylesheet_link_tag" do
   content_type "text/plain"
   <<"EOD"
-#{stylesheet_link_tag("/stylesheets/winter.css", "/stylesheets/summer.css", :media => "projection")}
+#{stylesheet_link_tag("/stylesheets/winter.css", "/stylesheets/summer.css", "test.css", :media => "projection")}
 EOD
 end
 
