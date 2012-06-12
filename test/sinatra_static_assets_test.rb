@@ -66,4 +66,29 @@ EOD
 EOD
   end
 
+
+  def test_link_tag_empty
+	get '/link_favicon_tag_empty', {}, 'SCRIPT_NAME' => '/bar'
+    assert last_response.ok?
+    assert_equal last_response.body,  <<EOD
+<link href="/bar/favicon.ico" rel="icon">
+EOD
+  end
+
+  def test_link_favicon_changing_filename
+	get '/link_favicon_tag_changing_filename', {}, 'SCRIPT_NAME' => '/bar'
+    assert last_response.ok?
+    assert_equal last_response.body,  <<EOD
+<link href="/bar/favicon2.ico" rel="icon">
+EOD
+  end
+
+  def test_link_favicon_tag_with_options
+	get '/link_favicon_tag_with_options', {}, 'SCRIPT_NAME' => '/bar'
+    assert last_response.ok?
+    assert_equal last_response.body,  <<EOD
+<link href="/bar/favicon.ico" rel="apple-touch-icon">
+EOD
+  end
+  
 end
