@@ -23,4 +23,11 @@ class SintraStaticAssetsXHTMLTest < Test::Unit::TestCase
       "<link charset=\"utf-8\" href=\"/stylesheets/winter.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\"/>"
   end
 
+  def test_link_favicon_tag_closes
+	get '/link_favicon_tag', {}, 'SCRIPT_NAME' => '/bar'
+    assert last_response.ok?
+    assert_equal last_response.body, 
+      '<link href="/bar/favicon.ico" rel="shortcut icon"/>'
+  end
+
 end
