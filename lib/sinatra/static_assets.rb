@@ -38,6 +38,19 @@ module Sinatra
           desc
         end
       end
+      
+      def link_favicon_tag(source = nil, options = {})
+        source = "favicon.ico" if source.nil? or source.empty?
+        unless settings.xhtml
+          # html5 style like <link rel="icon" href="http://example.com/myicon.ico" />
+          options[:rel] = options[:rel] || "icon"
+        else
+          # xhtml style like <link rel="shortcut icon" href="http://example.com/myicon.ico" />
+          options[:rel] = "shortcut icon"
+        end
+        options[:href] = url_for(source)
+        tag("link", options)
+      end
 
       private
 

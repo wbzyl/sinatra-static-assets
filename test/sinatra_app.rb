@@ -47,3 +47,24 @@ get "/link_to_tag" do
 #{link_to "Tatry Mountains Rescue Team", "/topr"}
 EOD
 end
+
+get "/link_favicon_tag_empty" do
+  content_type "text/plain"
+  <<"EOD"
+#{link_favicon_tag}
+EOD
+end
+
+get "/link_favicon_tag_changing_filename" do
+  content_type "text/plain"
+  <<"EOD"
+#{link_favicon_tag 'favicon2.ico'}
+EOD
+end
+
+get "/link_favicon_tag_with_options" do
+  content_type "text/plain"
+  <<"EOD"
+#{link_favicon_tag 'favicon.ico', :rel => "apple-touch-icon" }
+EOD
+end

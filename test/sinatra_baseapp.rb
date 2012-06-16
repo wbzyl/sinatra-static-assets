@@ -18,5 +18,10 @@ module Sinatra
       content_type "text/plain"
       "#{stylesheet_link_tag("/stylesheets/winter.css")}"
     end
+    
+    get '/link_favicon_tag' do
+      content_type "text/plain"
+      "#{link_favicon_tag("favicon.ico")}"
+    end
   end
 end
